@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Best Singers</title>
+<style>
+body {
+    background-color:#f4dc42;
+    
+}
+#average{
+	font-size:150%;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+h1{
+	font-size:200%
+	font-family:Arial, Helvetica, sans-serif;
+}
+</style>
+<script type = "text/javascript"> 
+function upload_picture(input)
+{
+	var img = document.getElementById("committee"+input.id);
+	var str =input.value.split('\\');
+	var filename = str[str.length-1];
+	
+	img.src="C:\\committees\\"+filename;
+	
+}
+
+	
+function calcAvg()
+{
+	var score;
+	var min=document.getElementById("score1").value;
+	var max=document.getElementById("score1").value;
+	var sum=0;
+	
+	var avg = document.getElementById("average");
+	
+	
+	for(var i =1 ; i<6;i++)
+	{
+		score=parseInt(document.getElementById("score"+i).value);
+		
+		sum+=score;
+		if(min>score)
+			min=score;
+		if(max<score)
+			max=score;	
+	}
+	
+	sum=sum-min-max;
+	
+	avg.innerHTML="The max score is "+max+"<br/>";
+	avg.innerHTML+="The min score is "+min+"<br/>";
+	avg.innerHTML+="The average score by taking off max and min is "+ sum/3.0 ;
+	
+	
+}
+
+	
+</script>
+</head>
+
+<body>
+<div style="position: absolute; left: 500px; top: 28px; width: 222px; height: 76px;">
+
+<h1>Best Singer</h1>
+</div>
+
+
+<div style="position: absolute; left: 100px; top: 100px;">
+  <p>Committee1</p>
+  <p><img id="committee1" src="" width="101" height="129" alt="">  </p>
+  <p>
+    <input type="file" id="1" onchange="upload_picture(this)">
+  </p>
+  <p>
+  <input type="textfiled" id="score1"  size="5" >
+  </p>
+</div>
+
+
+<div style="position: absolute; left: 300px; top: 100px;">
+  <p>Committee2</p>
+  <p><img id="committee2" src="" width="101" height="129" alt="">  </p>
+  <p>
+    <input type="file" id="2" onchange="upload_picture(this)">
+  </p>
+  <p>
+  <input type="textfiled" id="score2"  size="5" >
+  </p>
+</div>
+
+
+<div style="position: absolute; left: 500px; top: 100px;">
+  <p>Committee3</p>
+  <p><img id="committee3" src="" width="101" height="129" alt="">  </p>
+  <p>
+    <input type="file" id="3" onchange="upload_picture(this)">
+  </p>
+  <p>
+  <input type="textfiled" id="score3"   size="5">
+  </p>
+</div>
+
+
+<div style="position: absolute; left: 700px; top: 100px;">
+  <p>Committee4</p>
+  <p><img id="committee4" src="" width="101" height="129" alt="">  </p>
+  <p>
+    <input type="file" id="4" onchange="upload_picture(this)">
+  </p>
+  <p>
+  <input type="textfiled" id="score4"   size="5">
+  </p>
+</div>
+
+
+
+<div style="position: absolute; left: 900px; top: 100px;">
+  <p>Committee5</p>
+  <p><img id="committee5" src="" width="101" height="129" alt="">  </p>
+  <p>
+    <input type="file" id="5" onchange="upload_picture(this)">
+  </p>
+  <p>
+  <input type="textfiled" id="score5"   size="5">
+  </p>
+</div>
+
+
+
+<div style="position: absolute; left: 519px; top: 431px; width: 60px; height: 24px;">
+  <button onClick="calcAvg()">Submit</button>
+ 
+</div>
+
+
+<div style="position: absolute; left: 113px; top: 487px; width: 901px; height: 72px;">
+  <p id="average" >
+  </p>
+</div>
+
+
+
+</body>
+</html>
