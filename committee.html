@@ -1,7 +1,107 @@
 <html>
+<head>
+	<title>Commitee</title>
+	<style>
+		div.container {
+			align: center;
+			width: 80%;
+			height: 80%;
+			position: absolute;
+			margin: auto;
+			top: 0; left: 0; right: 0; bottom: 0;
+			overflow: auto;
+			display: table;
+		}
+
+		div.container table{
+			align-items: center;
+			margin-left: 20%;
+			margin-top: 0;
+		}
+
+		div.circle {
+			display: inline-block;
+			position: relative;
+		}
+
+		.circles-decimals {
+			font-size: .4em;
+		}
+	</style>
+</head>
 <body>
-<p>
-Welcome!
-</p>
+	<div class="container">
+		<table border="0" cellpadding="0" cellspacing="15">
+			<tr>
+				<td>
+				</td>
+				<td align="center" colspan="2">
+					<img src="img/temp.png" width="90" height="90" />
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<img src="img/temp.png" width="90" height="90" />
+				</td>
+				<td align="center" colspan="2">
+					<div class="circle" id="scoreCircle"></div>
+				</td>
+				<td>
+				</td>
+				<td>
+					<img src="img/temp.png" width="90" height="90" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td align="center">
+					<img src="img/temp.png" width="90" height="90" />
+				</td>
+				<td align="center">
+					<img src="img/temp.png" width="90" height="90" />
+				</td>
+				<td>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<script src="js/circles.min.js"></script>
+	<script>
+		//@ http://jsfromhell.com/array/shuffle [v1.0]
+		function shuffle(o){ //v1.0
+			for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+			return o;
+		}
+
+		var color = ['#F4BCBF', '#D43A43'];
+
+		var scoreCircle = document.getElementById('scoreCircle');
+		
+		var percentage = 31.42 + 9.84;
+
+		var circle = Circles.create({
+			id:         scoreCircle.id,
+			value:		percentage,
+			radius:     180,
+			width:      30,
+			colors:     color
+		});
+
+		document.getElementById('add_button').onclick = function()
+		{
+			circle.update(circle._value + 10, 250);
+		};
+
+		document.getElementById('substract_button').onclick = function()
+		{
+			circle.update(circle._value - 10, 250);
+		};
+	</script>
 </body>
 </html>
