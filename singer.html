@@ -32,56 +32,19 @@
 <body>
   <h1 id="title" align="center">2016 UF Best Singer Tournament Score Board</h1>
   <div class="container">
-    <div class="singer">
-      <img src="img/temp.png"/>
-      <h2>Name: </h2>
-      <h2>Score: </h2>
-    </div>
-    <div class="singer">
-      <img src="img/temp.png"/>
-      <h2>Name: </h2>
-      <h2>Score: </h2>
-    </div>
-    <div class="singer">
-      <img src="img/temp.png"/>
-      <h2>Name: </h2>
-      <h2>Score: </h2>
-    </div>
-    <div class="singer">
-      <img src="img/temp.png"/>
-      <h2>Name: </h2>
-      <h2>Score: </h2>
-    </div>
-    <div class="singer">
-      <img src="img/temp.png"/>
-      <h2>Name: </h2>
-      <h2>Score: </h2>
-    </div>
-    <div class="singer">
-      <img src="img/temp.png"/>
-      <h2>Name: </h2>
-      <h2>Score: </h2>
-    </div>
-    <div class="singer">
-      <img src="img/temp.png"/>
-      <h2>Name: </h2>
-      <h2>Score: </h2>
-    </div>
-    <div class="singer">
-      <img src="img/temp.png"/>
-      <h2>Name: </h2>
-      <h2>Score: </h2>
-    </div>
-    <div class="singer">
-      <img src="img/temp.png"/>
-      <h2>Name: </h2>
-      <h2>Score: </h2>
-    </div>
-    <!-- <div class="singer">
-      <img src="img/temp.png"/>
-      <h2>Name: </h2>
-      <h2>Score: </h2>
-    </div> -->
+  <script>
+    function generateSingerBlock() {
+      var singerBlocks = "";
+      var block = "<div class=\"singer\"><img src=\"img/temp.png\"/><h2>Name: </h2><h2>Score: </h2></div>";
+
+      for (var i = 0; i < 25; i++) {
+        singerBlocks += block;
+      }
+
+      document.write(singerBlocks);
+    }
+    generateSingerBlock();
+  </script>
   </div>
 </body>
 </html>
