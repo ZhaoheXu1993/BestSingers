@@ -1,0 +1,31 @@
+    body{
+
+    }
+    div.placeholder{
+
+    }
+    div.container{
+      align-items: center;
+    }
+    div.singer{
+      align: center;
+      max-width: 40%;
+      max-height: 40%;
+      width: auto;
+      height: auto;
+      padding: 15px;
+      margin: 15px;
+      float: left;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid black;
+
+    }
+    div.singer img{
+      max-width: 100%;
+      padding-left: 20%;
+    }
+    div.singer h2 {
+      font-size: 20%;
+    	font-family: KaiTi;
+    }

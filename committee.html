@@ -1,6 +1,7 @@
 <html>
 <head>
 	<title>Commitee</title>
+	<link rel="stylesheet" href="progress.css" media="screen" type="text/css" />
 	<style>
 		div.container {
 			align: center;
@@ -31,7 +32,7 @@
 </head>
 <body>
 	<div class="container">
-		<table border="0" cellpadding="0" cellspacing="15">
+		<table border="1" cellpadding="0" cellspacing="15">
 			<tr>
 				<td>
 				</td>
@@ -83,25 +84,57 @@
 
 		var scoreCircle = document.getElementById('scoreCircle');
 		
-		var percentage = 31.42 + 9.84;
+		var percentage = 20;
 
 		var circle = Circles.create({
 			id:         scoreCircle.id,
 			value:		percentage,
 			radius:     180,
-			width:      30,
+			width:      40,
 			colors:     color
 		});
-
-		document.getElementById('add_button').onclick = function()
-		{
-			circle.update(circle._value + 10, 250);
-		};
-
-		document.getElementById('substract_button').onclick = function()
-		{
-			circle.update(circle._value - 10, 250);
-		};
+	</script>
+	<script type="text/javascript" src="progress.js"></script>
+	<script type="text/javascript">
+	
+	
+			(document.addEventListener||document.attachEvent)
+				.call(document,"DOMContentLoaded",function() {
+					var labels = [	"Interpolating",
+									"Building",
+									"Encoding",
+									"Finishing"];
+					
+					var progressBar = null;
+					
+					for (var i = 0; i < 4; i ++) {
+						progressBar = new ProgressBar();
+						progressBar.label = labels[i];
+						progressBar.appendTo(document.querySelector(".container"));
+						progressBar.setValue(34*i);
+					}
+	
+					var value = 0, direction = false, step = 1;
+					
+					progressBar = new ProgressBar();
+					progressBar.label = "Live Example";
+					progressBar.appendTo(document.querySelector(".container"));
+					
+					var intv = window.setInterval(function() {
+						if (direction) {
+							value -= step;
+						} else {
+							value += step;
+						}
+						
+						progressBar.setValue(value);
+						
+						if (value >= 100 || (value <= 0 && direction))
+							direction = !direction;
+					},33);
+	
+				});
+	
 	</script>
 </body>
 </html>

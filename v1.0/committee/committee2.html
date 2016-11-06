@@ -1,0 +1,60 @@
+<html>
+<head>
+	<title>Score</title>
+	<script src="js/circles.min.js"></script>
+</head>
+<body style="background-image: url('img/bkg1.jpg'); background-size: 100% 100%; background-repeat: no-repeat; ">
+	<script>
+		var score1 = 95, score2 = 90, score3 = 80, score4 = 98, score5 = 100;
+		var sName = "罗一丹";
+	</script>
+	<div style="margin-left:15%; margin-top:3%;" >
+		<table border="0" cellpadding="0" cellspacing="15">
+			<tr>
+				<td rowspan="2">
+					<img src="img/singers/YidanLuo.jpg" width="100%">
+				</td>
+			</tr>
+			<tr>
+				<td rowspan="3">
+					<div class="circle" id="scoreCircle" style="margin-left:25%">
+						<script>
+							var scoreCircle = document.getElementById('scoreCircle');
+							var r = window.screen.width / 5;
+							var color = ['#FFDAB9', '#D86018'];
+							var circle = Circles.create({
+									id:         scoreCircle.id,
+									value:		0,
+									radius:     r,
+									width:      40,
+									colors:     color
+							});
+
+							setTimeout(function() {
+								var percentage = (score1 + score2 + score3 + score4 + score5) / 5;
+
+								circle = Circles.create({
+									id:         scoreCircle.id,
+									value:		percentage,
+									radius:     r,
+									width:      40,
+									colors:     color
+								});
+							}, 200);
+
+							
+						</script>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h2 style="text-align:center; font-size:300%; font-family: 'Kaiti';">罗一丹</h2>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	
+</body>
+</html>

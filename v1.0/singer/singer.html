@@ -1,0 +1,87 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+　<link rel="stylesheet" type="text/css"
+　　　　 media="screen and (max-device-width: 450px)"
+　　　　 href="css/phoneScreen.css" />
+  <title>UF Best Signer Score board</title>
+  <style type="text/css">
+    body{
+
+    }
+    div.placeholder{
+
+    }
+    div.container{
+      align-items: center;
+    }
+    div.singer{
+      align: center;
+      max-width: 25%;
+      max-height: 40%;
+      width: 20%;
+      padding: 15px;
+      margin: 15px;
+      float: left;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid black;
+
+    }
+    div.singer img{
+      max-width: 100%;
+      padding-left: 20%;
+    }
+    div.singer h2 {
+    	font-family: KaiTi;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="title" align="center">2016 CSA Best Singer Score Board</h1>
+  <div class="container">
+  <script>
+    var singers = [
+        {path: 'img/singers/MiaoHuang.png', name: "黄淼", score: 90},
+        {path: 'img/singers/YidanLuo.png', name: "罗一丹", score: 89},
+        {path: 'img/singers/YuZhang.png', name: "张宇", score: 88},
+        {path: 'img/singers/TaoWang.png', name: "王韬", score: 87},
+        {path: 'img/singers/BeichenSu.png', name: "宿北辰", score: 86},
+        {path: 'img/singers/HaoranLin.png', name: "林浩然", score: 86},
+        {path: 'img/singers/JiahuiSun.png', name: "孙佳慧", score: 86},
+        {path: 'img/singers/JialongQian.png', name: "钱家隆", score: 85},
+        {path: 'img/singers/JunbinLian.png', name: "连君斌", score: 84},
+        {path: 'img/singers/LanfangYu.png', name: "喻兰芳", score: 83},
+        {path: 'img/singers/MengqiuWu.png', name: "吴梦秋", score: 82},
+        {path: 'img/singers/MuliWang.png', name: "王沐黎", score: 81},
+        {path: 'img/singers/XiaoweiLi.png', name: "李晓薇", score: 81},
+        {path: 'img/singers/WenchenLiu.png', name: "刘文臣", score: 81},
+        {path: 'img/singers/YidaWang.png', name: "王一达", score: 81},
+        {path: 'img/singers/ZunWang.png', name: "王尊", score: 81}
+      ];
+
+      function compare(s1, s2) {
+        return s2.score - s1.score;
+      }
+      singers.sort(compare);
+
+      function generateSingerBlock() {
+        var singerBlocks = "";
+        var commonBlock = "<div class=\"singer\"><img src=";
+ 
+        for (var i = 0; i < 8; i++) {
+          singerBlocks += commonBlock + singers[i].path;
+          singerBlocks += " width=\"60%\"/><h2>排名: ";
+          singerBlocks += (i+1) + "<h2>姓名: ";
+          singerBlocks += singers[i].name;
+          singerBlocks += "</h2><h2>得分: ";
+          singerBlocks += singers[i].score + "</h2></div>";
+        }
+
+        document.write(singerBlocks);
+      }
+      generateSingerBlock();
+  </script>
+  </div>
+</body>
+</html>
